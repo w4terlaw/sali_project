@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .user-details {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 600px;
+            margin: auto;
+        }
+        .user-details img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .user-details h2 {
+            margin-top: 0;
+        }
+        .user-details p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="user-details">
+        <img src="{{ user.picture_large }}" alt="{{ user.name }}">
+        <h2>{{ user.first_name }} {{ user.last_name }}</h2>
+        <p><strong>Email:</strong> {{ user.email }}</p>
+        <p><strong>Gender:</strong> {{ user.gender }}</p>
+        <p><strong>Date of Birth:</strong> {{ user.dob_date }}</p>
+        <p><strong>Age:</strong> {{ user.dob_age }}</p>
+        <p><strong>Location:</strong> {{ user.city }}, {{ user.state }}, {{ user.country }}</p>
+        <p><strong>Phone:</strong> {{ user.phone }}</p>
+        <p><strong>Cell:</strong> {{ user.cell }}</p>
+        <p><strong>Registered Date:</strong> {{ user.registered_date }}</p>
+        <p><strong>Registered Age:</strong> {{ user.registered_age }}</p>
+        <p><strong>Nationality:</strong> {{ user.nat }}</p>
+        <a href="/">Back to Users</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FastAPI User Fetcher</title>
+    <style>
+        .container {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .user-card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin: 20px;
+            width: 300px;
+            transition: transform 0.3s ease;
+        }
+        .user-card:hover {
+            transform: translateY(-5px);
+        }
+        .user-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px 10px 0 0;
+        }
+        .user-card-content {
+            padding: 20px;
+        }
+        .user-card-content h2 {
+            margin-top: 0;
+        }
+        .user-card-content p {
+            margin: 5px 0;
+        }
+        .user-card-content a {
+            display: block;
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Fetch User</h1>
+    <form action="/" method="post">
+        <button type="submit">Get User</button>
+    </form>
+    <h2>Users:</h2>
+    <div class="container">
+    {% for user in users %}
+        <div class="user-card">
+            <img src="{{ user.picture_large }}" alt="{{ user.name }}">
+            <div class="user-card-content">
+                <h2>{{ user.first_name }} {{ user.last_name }}</h2>
+                <p><strong>Email:</strong> {{ user.email }}</p>
+                <a href="/user/{{ user.id }}">More Details</a>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+</body>
+</html>
